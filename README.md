@@ -45,10 +45,7 @@ We will primarily be using a web browser, `R`, RStudio, and `git`. Please be sur
     - ggplot2: version 2.2.1
     
     Ideally, you should have the same versions installed. ...but as long as your versions are not too far off, you should be okay. To check your versions, you can run the following snippet:
-    
-    ```r
-    for (p in packages) {sprintf("%s: version %s", p, packageVersion(p)) %>% print()}
-    ```
+  
 ### text editor:
 
 If you already have something you like, feel free to use that code editor. Popular code editors include:
