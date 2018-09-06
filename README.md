@@ -2,7 +2,9 @@
 
 Participants will use of Rmarkdown and ggplot2 to create document integrating R code, documentation and data visualization in compelling documents. The first half of the session will be focusing on an introduction to Rmarkdown and how this format can be used to make data processing and analysis more reproducible by combining, documentation and executable code chunks into one document, that can be rendered in different formats (PDF, html, …) to be shared. In the second half of this workshop, participants will take a deeper look into data visualization and how ggplot’s grammar of graphics approach can be used to conduct powerful data exploration and analysis visualizations. Basic knowledge of the R programming language recommended.
 
-## Session
+## Workshop
+
+<p><img  src="https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png" width="250px" align="right" /></p>
 
 This training will be held on Monday, October 1, 2018 from 1:30pm - 5:00pm
 
@@ -80,3 +82,9 @@ If you'd like to brush up on your R skills prior to the workshop, check out this
 - [RStudio's R Programming](https://www.rstudio.com/online-learning/) page
 
 If you're a fan of cheat sheets, [RStudio](https://www.rstudio.com) provides some fantastic ones on their [Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) page.
+
+---
+
+<div>
+  <p align="center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"  /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. </p>
+</div>
