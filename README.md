@@ -2,7 +2,7 @@
 
 Participants will use of Rmarkdown and ggplot2 to create document integrating R code, documentation and data visualization in compelling documents. The first half of the session will be focusing on an introduction to Rmarkdown and how this format can be used to make data processing and analysis more reproducible by combining, documentation and executable code chunks into one document, that can be rendered in different formats (PDF, html, …) to be shared. In the second half of this workshop, participants will take a deeper look into data visualization and how ggplot’s grammar of graphics approach can be used to conduct powerful data exploration and analysis visualizations. Basic knowledge of the R programming language recommended.
 
-## Workshop
+### Workshop
 
 <p><img  src="https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png" width="250px" align="right" /></p>
 
