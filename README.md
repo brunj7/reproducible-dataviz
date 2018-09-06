@@ -4,7 +4,7 @@ Participants will use of Rmarkdown and ggplot2 to create document integrating R 
 
 ## Session
 
-This training will be hold on Monday, October 1 from 1:30pm - 5:00pm
+This training will be held on Monday, October 1, 2018 from 1:30pm - 5:00pm
 
 Here to register: http://sched.co/FYq5
 
