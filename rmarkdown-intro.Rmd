@@ -1,0 +1,56 @@
+---
+title: "reproducible-dataviz"
+author: "Julien Brun"
+date: "9/11/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reproducible Analysis with Rmarkdown
+
+### Dive in: Create our first RMarkdown
+
+Demo time
+
+### Intro Slides
+
+- Why reproducible science
+- How Rmarkdown (and friends) can help
+  - Combine code and documentation in **one** document/file: literate programming
+  - Help to compile compelling documents (reports, journal articles, presentations, ...)
+  - Easy to share through various formats (websites, blogs, dashboards, interactive visualizations)
+  - Can even let you run other scripting languages (Python, SQL, ...)
+
+
+- What is Rmarkdown
+  - Markdown
+ GitHub tutorial: https://guides.github.com/features/mastering-markdown/
+  
+  - the **R** flavor
+  Rmarkdown cheat sheet: https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+  Reference guide : https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+  
+  
+- What can you do with Rmarkdown
+  - Document extensively your analysis
+  - Share results (figures and tables)
+  - Let others execute and modify your code
+  - Create interactive documents
+  - Create websites and blog
+  - Write journal articles and Books
+- What Rmarkdown can not help you with
+  - Data management and access
+  - Capture your computing environment
+  - Modularize your code
+
+### Hands on exercise
+
+- Use data from LTER
+  Potentially: https://nceas.github.io/metajam/articles/dataset-batch-processing.html
+- show a compelling data analysis with it
+- open the floor to cool data visualizations for the ggplot2 part of the training
+
+
