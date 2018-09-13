@@ -67,5 +67,6 @@ Cell 3 | Cell 4
 
 
 <img align="right" src="http://hexb.in/hexagons/rmarkdown.png" img/>
+
 ## HTML works too!
 

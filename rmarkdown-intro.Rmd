@@ -13,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ### Dive in: Create our first RMarkdown
 
+### Show the gallery
+
+https://rmarkdown.rstudio.com/gallery.html
+
 Demo time
 
 ### Intro Slides
@@ -26,13 +30,13 @@ Demo time
 
 
 - What is Rmarkdown
-  - Markdown
- GitHub tutorial: https://guides.github.com/features/mastering-markdown/
+  - Markdown is a simple (read easy to use) text-based markup for creating easy to read documents to be converted to HTML, PDF, docx and other formats. Document styles can be customised with HTML/CSS and math notation can be included using LaTeX or mathjax. (From: [RopenSci reproducibility guide](http://ropensci.github.io/reproducibility-guide/sections/tools/))
+ 
   
   - the **R** flavor
-  Rmarkdown cheat sheet: https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
-  Reference guide : https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
-  
+    - R Markdown: An enhanced flavor of Markdown that recognizes R code chunks, which allows the embedding of R directly into a Markdown document to create dynamic and reproducible documents. (From: [RopenSci reproducibility guide](http://ropensci.github.io/reproducibility-guide/sections/tools/))
+
+
   
 - What can you do with Rmarkdown
   - Document extensively your analysis
@@ -53,4 +57,12 @@ Demo time
 - show a compelling data analysis with it
 - open the floor to cool data visualizations for the ggplot2 part of the training
 
+
+## References
+
+- RStudio Material on Rmarkdown : https://rmarkdown.rstudio.com/articles.html
+- RStudio Gallery: https://rmarkdown.rstudio.com/gallery.html
+- Rmarkdown cheat sheet: https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
+- Reference guide : https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+- GitHub Intro to Markdown: https://guides.github.com/features/mastering-markdown/
 
