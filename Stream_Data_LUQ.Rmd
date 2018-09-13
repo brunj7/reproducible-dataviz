@@ -78,7 +78,7 @@ leaflet() %>% setView(-65.82, 18.32, 14) %>%
 
 ## Read the data and metadata in your R environment
 
-```{r read_data, eval=FALSE}
+```{r read_data, eval=FALSE, message=FALSE}
 # You could list the datasets dowloaded in the `Data_SEC` folder 
 # local_datasets <- dir(data_folder, full.names = TRUE)
 
@@ -137,5 +137,5 @@ all_sites_luq$Sample_Date <- mdy(gsub(" 0:00", "", all_sites_luq$Sample_Date)) #
 library(ggplot2)
 
 ggplot(all_sites_luq) + 
-    geom_line(aes(Sample_Date, pH, color=`Sample_ID`))
+    geom_line(aes(Sample_Date, Cond, color=Sample_ID))
 ```
