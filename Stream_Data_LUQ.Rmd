@@ -69,7 +69,8 @@ At this point, you should have all the data and the metadata downloaded inside y
 library(leaflet)
 library(leaflet.extras)  # handle KML format
 
-# Crea
+# Create the map 
+kml <- readr::read_file("./data/streams.kml")
 leaflet() %>% setView(-65.82, 18.32, 14) %>%
        addTiles() %>%
        addKML(kml, labelProperty = 'name', popupProperty = 'description')
