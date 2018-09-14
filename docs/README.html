@@ -153,7 +153,9 @@ $(document).ready(function () {
 <li><p><strong>R packages:</strong> Please be sure you have installed or updated the following packages:</p>
 <ul>
 <li><code>remotes</code> (not needed, if you have <code>devtools</code> already installed)</li>
+<li><code>knitr</code></li>
 <li><code>rmarkdown</code></li>
+<li><code>DT</code></li>
 <li><code>tidyverse</code> (includes <code>ggplot2</code>)</li>
 <li><code>lubridate</code></li>
 </ul></li>
@@ -166,6 +168,12 @@ $(document).ready(function () {
 <li><p>In R for Windows clients, go to the Packages menu =&gt; Install package(s).</p></li>
 <li><p>In R for MacOS X clients, go to the Package &amp; Data menu and click on Package Installer =&gt; CRAN (binaries) =&gt; Get list. Click on the box “install dependencies” in order to automatically install other necessary libraries while installing your R libraries.</p></li>
 </ul>
+<p>In our case, you could type at the R console:</p>
+<pre class="r"><code>workshop_pkg &lt;- c(&quot;remotes&quot;, &quot;knitr&quot;, &quot;rmarkdown&quot;, &quot;DT&quot;, &quot;tidyverse&quot;, &quot;lubridate&quot;)
+install.packages(workshop_pkg)</code></pre>
+</div>
+<div id="pdf-rendering" class="section level4">
+<h4>PDF rendering</h4>
 <p>If you want to generate PDF output from Markdown (we will mainly focus on html files), you will need to install LaTeX. For R Markdown users who have not installed LaTeX before, we recommend to follow the recommendations of [Xie et 2018] and that you install TinyTeX (<a href="https://yihui.name/tinytex/" class="uri">https://yihui.name/tinytex/</a>):</p>
 <pre class="r"><code>install.packages(&quot;tinytex&quot;)
 tinytex::install_tinytex()  # install TinyTeX</code></pre>

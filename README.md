@@ -31,7 +31,9 @@ To download RStudio (current version is 1.1.456), visit [RStudio's download page
 - **R packages:** Please be sure you have installed or updated the following packages:
 
     - `remotes` (not needed, if you have `devtools` already installed) 
+    - `knitr`
     - `rmarkdown`
+    - `DT`
     - `tidyverse` (includes `ggplot2`)
     - `lubridate`
     
@@ -45,6 +47,14 @@ To download RStudio (current version is 1.1.456), visit [RStudio's download page
 
 - In R for MacOS X clients, go to the Package & Data menu and click on Package Installer => CRAN (binaries) => Get list. Click on the box “install dependencies” in order to automatically install other necessary libraries while installing your R libraries.
 
+In our case, you could type at the R console:
+
+```r
+workshop_pkg <- c("remotes", "knitr", "rmarkdown", "DT", "tidyverse", "lubridate")
+install.packages(workshop_pkg)
+```
+
+#### PDF rendering
 
 If you want to generate PDF output from Markdown (we will mainly focus on html files), you will need to install LaTeX. For R Markdown users who have not installed LaTeX before, we recommend to follow the recommendations of [Xie et 2018] and that you install TinyTeX (https://yihui.name/tinytex/):
 
