@@ -11,6 +11,8 @@ to start a new paragraph.
 
 ~~strikethrough~~
 
+`back ticks`
+
 
 Title
 ======
