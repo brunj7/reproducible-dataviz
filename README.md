@@ -8,7 +8,7 @@ Participants will use of Rmarkdown and ggplot2 to create document integrating R 
 
 This training will be held on Monday, October 1, 2018 from 1:30pm - 5:00pm
 
-Here to register: http://sched.co/FYq5
+To register, simply add the session to your schedule: http://sched.co/FYq5
 
 ### Organizers:
 
@@ -20,58 +20,40 @@ Here to register: http://sched.co/FYq5
 
 ### Required software
 
-We will primarily be using a web browser, `R`, RStudio, and `git`. Please be sure these are all installed on your laptop, as follows:
+We will primarily be using a web browser, `R`, `RStudio`. Please be sure these are all installed on your laptop, as follows:
 
 - **R:** We will use R version 3.5.1, which you can download and install from [CRAN](https://cran.rstudio.com)
 
-- **RStudio**: To download RStudio, visit [RStudio's download page](https://www.rstudio.com/products/rstudio/download/).
-  *If you don't know how up to date your version of RStudio is, please download an updated copy and install it*
+- **RStudio**: RStudio is an excellent front-end (IDE) for R with integrated graphics and coding tools and is recommended (read: required) for this course. It is free and available for both Windows, Mac OS X and Linux.
+To download RStudio (current version is 1.1.456), visit [RStudio's download page](https://www.rstudio.com/products/rstudio/download/).
+  *If you don't know how up to date your version of RStudio is, please download a recent version and install it*
     
 - **R packages:** Please be sure you have installed or updated the following packages:
 
-    - devtools
-    - rmarkdown
-    - DT
-    - kableExtra
-    - dplyr
-    - purrr
-    - ggplot2
+    - `remotes` (not needed, if you have `devtools` already installed) 
+    - `rmarkdown`
+    - `tidyverse` (includes `ggplot2`)
+    - `lubridate`
     
-    We'll be using the following package versions:
-    
-    - devtools: version 
-    - dplyr: version 
-    - purrr: verion
-    - DT: version 
-    - kableExtra: version 0.8.0
-    - ggplot2: version 2.2.1
-    
-    Ideally, you should have the same versions installed. ...but as long as your versions are not too far off, you should be okay. To check your versions, you can run the following snippet:
-  
-### text editor:
+#### There are several ways to install a R package:
 
-If you already have something you like, feel free to use that code editor. Popular code editors include:
-    
-- Sublime Text
-- Notepad++
-- Atom
-- Visual Studio Code
-- Emacs
-- vi(m)
-        
-    If you don't know if you have a code editor or know you don't have one, we recommend downloading [Atom](https://atom.io).
+- In the R console, type: `install.packages("package-name")` Note that R is **case sensitive**, and that the **package name should be in quotes**.
 
-### Version control - git (and git bash): 
+- In RStudio, click on the "Packages" tab in the bottom right quadrant of the interface, click Install, type the package name and click Istall _or_ click  Tools => Install Packages, type the package name and click Install
 
-Please install git on your system: https://git-scm.com/downloads and follow the instructions. 
+- In R for Windows clients, go to the Packages menu => Install package(s).
 
-- Windows - you can set the options to default during the installation, until you reach `Configuring the terminal emulator to use with Git Bash` -> be sure `Use MinTTY` is selected.  This will install both git and a set of useful command-line tools using a trimmed down Bash shell.  
-- Mac OSX - depending your OS version, you might have to run few commands from the terminal. Please refer to the `README.txt` that comes with the download regarding the exact steps to follow.
+- In R for MacOS X clients, go to the Package & Data menu and click on Package Installer => CRAN (binaries) => Get list. Click on the box “install dependencies” in order to automatically install other necessary libraries while installing your R libraries.
 
-- **git:** [Download git](https://git-scm.com/downloads) and install it on your system.
-- **GitHub:** We will be using [GitHub](https://github.com) so you will need create (or remember your existing) GitHub login
 
-### Refresh your skills
+If you want to generate PDF output from Markdown (we will mainly focus on html files), you will need to install LaTeX. For R Markdown users who have not installed LaTeX before, we recommend to follow the recommendations of [Xie et 2018] and that you install TinyTeX (https://yihui.name/tinytex/):
+
+```r
+install.packages("tinytex")
+tinytex::install_tinytex()  # install TinyTeX
+```
+
+### Refresh your R skills
 
 This workshop assumes a base level of experience using R for scientific and statistical analyses.
 However, we realize that not everyone will be at the same place in terms of familiarity with the tools we'll be using.
@@ -88,3 +70,5 @@ If you're a fan of cheat sheets, [RStudio](https://www.rstudio.com) provides som
 <div>
   <p align="center"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png"  /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. </p>
 </div>
+
+
