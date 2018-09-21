@@ -3,6 +3,7 @@ title: "reproducible-dataviz"
 author: "Julien Brun"
 date: "9/11/2018"
 output: html_document
+bibliography: rmarkdown.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -10,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Reproducible Analysis with Rmarkdown
+
+### Why making out work reproducible
 
 ### Dive in: Create our first RMarkdown
 
@@ -21,16 +24,22 @@ Demo time
 
 ### Intro Slides
 
-- Why reproducible science
 - How Rmarkdown (and friends) can help
   - Combine code and documentation in **one** document/file: literate programming
   - Help to compile compelling documents (reports, journal articles, presentations, ...)
   - Easy to share through various formats (websites, blogs, dashboards, interactive visualizations)
   - Can even let you run other scripting languages (Python, SQL, ...)
 
-
 - What is Rmarkdown
   - Markdown is a simple (read easy to use) text-based markup for creating easy to read documents to be converted to HTML, PDF, docx and other formats. Document styles can be customised with HTML/CSS and math notation can be included using LaTeX or mathjax. (From: [RopenSci reproducibility guide](http://ropensci.github.io/reproducibility-guide/sections/tools/))
+  - There are 3 basic components of an R Markdown document: 
+     - metadata   (`YAML` Ain't Markup Language)
+     - text for documentation   (`markdown` + other few tricks)
+     - code (chunks) storing your anlaysis   (`R` and friends)
+     
+     ![](./images/rmarkdonw-doc-structure.png) 
+     
+     
  
   
   - the **R** flavor
@@ -45,10 +54,17 @@ Demo time
   - Create interactive documents
   - Create websites and blog
   - Write journal articles and Books
+  
 - What Rmarkdown can not help you with
   - Data management and access
   - Capture your computing environment
   - Modularize your code
+
+
+### Rmarkdown tips and tricks
+
+- chunk options : https://bookdown.org/yihui/rmarkdown/r-code.html
+
 
 ### Hands on exercise
 
@@ -60,9 +76,32 @@ Demo time
 
 ## References
 
+### General
+
 - RStudio Material on Rmarkdown : https://rmarkdown.rstudio.com/articles.html
 - RStudio Gallery: https://rmarkdown.rstudio.com/gallery.html
 - Rmarkdown cheat sheet: https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
-- Reference guide : https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+- Rmarkdown Reference guide [Xie et al,2018]: https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 - GitHub Intro to Markdown: https://guides.github.com/features/mastering-markdown/
+- knitr - chunk options: https://yihui.name/knitr/options/
 
+### Advanced formatting
+
+- Fancy Table formatting with `kableExtra`: https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#overview
+- Interactive tables with `DT`: https://rstudio.github.io/DT/
+
+
+### Adding References and Biliography
+
+- RStudio Bibliography page: https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+- Easy citations in RMarkdown with RefManageR from [tclavL](https://tclavelle.github.io/): https://tclavelle.github.io/blog/reference_tips/
+
+
+### Data Viz
+
+- https://socviz.co/index.html
+
+
+### Others
+
+- Mail merge: https://rmarkdown.rstudio.com/articles_mail_merge.html 
