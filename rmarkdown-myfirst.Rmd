@@ -31,11 +31,202 @@ plot(pressure)
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 
-```{r}
+--
+
+End of default example
+
+--
+
+## Some Markdown fun
+
+### Adding an image
+
+- Markdown way: 
+
+```
+![LTER logo](https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png)
+```
+![LTER logo](https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png)
+
+**=> not much control!!!**
+
+<br>
+
+- Using HTML tags: 
+
+<br>
+
+<img src="https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png" width="50%" align="right" alt="LTER logo" />
+```
+<img src="https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png" width="50%" align="right" alt="LTER logo" />
+```
+
+<br>
+<br>
+
+- Using code chunks: 
+
+```{r, LTER logo, out.width='50%', fig.align="right", fig.cap="LTER logo", results='hide'}
+  knitr::include_graphics("https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png")
+```
+
+
+```{r, LTER logo chunk, out.width='50%', fig.align="center", fig.cap="LTER logo", echo=FALSE}
+knitr::include_graphics("https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png")
+```
+### Adding an URL
+
+Pure markdown: <http://www.lternet.edu>
+
+This will also work: http://www.lternet.edu
+
+Adding link to a word: [LTER](http://www.lternet.edu)
+
+Opening the link in a new window (R Markdown): [LTER](http://www.lternet.edu){target="_blank"}
+
+--
+
+## Insert our first code chunk
+
+- From GUI
+- Using keyboard code chnuk: `Ctrl` + `Alt` + `I` (`Cmd` + `Option` + `I` on macOS).
+
+```{r iris median no param}
+
+library(tidyverse)
+
+iris_avg <- iris %>%
+  group_by(Species) %>%
+  summarise_all(funs(median = median))
+
+iris_avg
+
+```
+mmm, we do not want the `Tidyverse` message...
+
+```{r iris median, message=FALSE}
+
+library(tidyverse)
+
+iris_avg <- iris %>%
+  group_by(Species) %>%
+  summarise_all(funs(median = median))
+
+iris_avg
+
+```
+
+
+## Some basic plotting
+
+```{r iris median plot}
+barplot(iris_avg$Sepal.Length_median, names = iris_avg$Species)
+```
+
+- Discuss the plot and how to remove the code above the plot
+- Show we can add a legend
+
+```{r iris median plot with caption, echo=FALSE, fig.cap="Median Sepal Length"}
+barplot(iris_avg$Sepal.Length_median, names = iris_avg$Species)
+```
+## Tables
+
+You can use html widgets to add som interactivity to your R markdown documents
+
+
+
+You can render tables in R Markdown
+
+```{r my first table}
+knitr::kable(iris_avg, caption = "Iris Median data")
+```
+
+But not that convenient if the table is large:
+
+```{r large table}
+knitr::kable(iris, caption = "Iris data")
+```
+
+## Embedding interactive elements - HTML widgets
+
+### Interactive table
+
+To let the user be able to explore the data, we can create an interactive table
+
+```{r interactive table}
 library(DT)
-datatable(mtcars)
+DT::datatable(iris)
 ```
-```{python, engine.path = '/usr/bin/python'}
-import sys
-print(sys.version)
+
+
+### Interactive Maps
+
+We have a csv file with the all the LTER sites. We can read this file and create an interactive maps in few lines of code
+
+- Show the leaflet
+- Render => discuss the `read_csv` message
+- How to fix this => `message-FALSE`
+- Add a caption
+
+```{r leaflet, message = FALSE, fig.cap= "LTER sites of the contiguous US"}
+library(leaflet)
+
+# Read the LTER sites
+lter_sites <- read_csv("./data/LTER_sites.csv")
+
+# Map of the contiguous US LTER sites
+leaflet(data=lter_sites) %>% addTiles() %>% setView(-98, 40, zoom = 4) %>% addCircleMarkers(~Longitude, ~Latitude, popup = ~Code)
 ```
+
+
+## Inline code 
+
+**You can use R to compute values within your text documentation**
+
+For example, you could compute the number of LTER sites from the csv files we used. So if this file is updated because 2 new LTER sites are added by NSF, your text will be automatically updated accordingly!
+
+You can add inline code outside the chunks by using single quotation:
+```{r LTER site count, echo=TRUE, eval=FALSE}
+There are `r nrow(lter_sites)` US LTER sites!
+```
+
+This will render as:  
+**There are `r nrow(lter_sites)` US LTER sites!**
+
+
+
+
+
+
+
+## Global Chunk Options
+
+**As you can set options for code chunks, you can set the same for all the chunks of the R markdown document.**
+
+For example, we coul want to save all our plots in a specific folder:
+
+```{r global options folder}
+knitr::opts_chunk$set(fig.path = "./figures/") 
+```
+
+```{r}
+knitr::opts_chunk$set(fig.width=12, fig.height=8)
+```
+
+### Default options
+
+Want to know your default knit option?
+
+```{r default knit, eval=FALSE}
+str(knitr::opts_chunk$get())
+```
+
+
+
+## Knit Options via YALM
+
+### Adding a table of content
+
+### Adding numbering to headers
+
+

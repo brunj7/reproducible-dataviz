@@ -1,5 +1,5 @@
 ---
-title: "reproducible-dataviz"
+title: "reproducible-dataviz-notes"
 author: "Julien Brun"
 date: "9/11/2018"
 output: html_document
@@ -65,6 +65,9 @@ Demo time
 
 - chunk options : https://bookdown.org/yihui/rmarkdown/r-code.html
 
+- Global options: 
+  - `knitr::opts_chunk$set(dev = "png")`
+  - referencefigures/tables using `bookdown::pdf2`
 
 ### Hands on exercise
 
@@ -78,15 +81,19 @@ Demo time
 
 ### General
 
+- Interactive `markdown` tutorial: https://www.markdowntutorial.com
 - RStudio Material on Rmarkdown : https://rmarkdown.rstudio.com/articles.html
 - RStudio Gallery: https://rmarkdown.rstudio.com/gallery.html
 - Rmarkdown cheat sheet: https://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
-- Rmarkdown Reference guide [Xie et al,2018]: https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
+- Rmarkdown the Definitive Guide [Xie et al,2018]: https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf
 - GitHub Intro to Markdown: https://guides.github.com/features/mastering-markdown/
 - knitr - chunk options: https://yihui.name/knitr/options/
+- Making R Markdonw even easier: https://thinkr-open.github.io/remedy/
+- Report automation: https://rviews.rstudio.com/2017/11/07/automating-summary-of-surveys-with-rmarkdown/
 
 ### Advanced formatting
 
+- Image parameters: https://www.zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/
 - Fancy Table formatting with `kableExtra`: https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#overview
 - Interactive tables with `DT`: https://rstudio.github.io/DT/
 
