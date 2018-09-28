@@ -33,6 +33,7 @@ To download RStudio (current version is 1.1.456), visit [RStudio's download page
     - `remotes` (not needed, if you have `devtools` already installed) 
     - `knitr`
     - `rmarkdown`
+    - `bookdown`
     - `DT`
     - `tidyverse` (includes `ggplot2`)
     - `lubridate`
@@ -50,7 +51,7 @@ To download RStudio (current version is 1.1.456), visit [RStudio's download page
 In our case, you could type at the R console:
 
 ```r
-workshop_pkg <- c("remotes", "knitr", "rmarkdown", "DT", "tidyverse", "lubridate")
+workshop_pkg <- c("remotes", "knitr", "rmarkdown", "bookdown", "DT", "tidyverse", "lubridate")
 install.packages(workshop_pkg)
 ```
 
