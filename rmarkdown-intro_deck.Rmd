@@ -257,6 +257,13 @@ Note: equivalent of `echo = FALSE`, `results = 'hide'`, `warning = FALSE`, and `
 
 - **fig.cap**: The figure caption
 
+
+---
+class: inverse, center, middle
+
+# `ggplot2`
+
+
 ---
 class: inverse, center, middle
 
