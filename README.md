@@ -1,6 +1,6 @@
 # LTER-ASM18 workshop -  Reproducible Data Visualization using Rmarkdown and ggplot2
 
-Participants will use of Rmarkdown and ggplot2 to create document integrating R code, documentation and data visualization in compelling documents. The first half of the session will be focusing on an introduction to Rmarkdown and how this format can be used to make data processing and analysis more reproducible by combining, documentation and executable code chunks into one document, that can be rendered in different formats (PDF, html, …) to be shared. In the second half of this workshop, participants will take a deeper look into data visualization and how ggplot’s grammar of graphics approach can be used to conduct powerful data exploration and analysis visualizations. Basic knowledge of the R programming language recommended.
+Participants will use of Rmarkdown and ggplot2 to create document integrating `R` code, documentation and data visualization in compelling documents. The first half of the session will be focusing on an introduction to Rmarkdown and how this format can be used to make data processing and analysis more reproducible by combining, documentation and executable code chunks into one document, that can be rendered in different formats (PDF, html, …) to be shared. In the second half of this workshop, participants will take a deeper look into data visualization and how ggplot’s grammar of graphics approach can be used to conduct powerful data exploration and analysis visualizations. Basic knowledge of the R programming language recommended.
 
 ### Workshop
 
@@ -57,7 +57,7 @@ install.packages(workshop_pkg)
 
 #### PDF rendering
 
-If you want to generate PDF output from Markdown (we will mainly focus on html files), you will need to install LaTeX. For R Markdown users who have not installed LaTeX before, we recommend to follow the recommendations of [Xie et 2018] and that you install TinyTeX (https://yihui.name/tinytex/):
+If you want to generate PDF output from Markdown (we will mainly focus on html files), you will need to install LaTeX. For R Markdown users who have not installed LaTeX before, we recommend to follow the recommendations of [Xie et al, 2018] and that you install `TinyTeX` (https://yihui.name/tinytex/):
 
 ```r
 install.packages("tinytex")
