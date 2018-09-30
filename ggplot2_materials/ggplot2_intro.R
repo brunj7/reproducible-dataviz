@@ -1,6 +1,6 @@
 ################################################################################
-### BIO 410/510                                                             ###
-### MODULE 2: Intro to visualization with ggplot2                            ### 
+### 2018 All Scientists Meeting                                              ###
+###  Intro to visualization with ggplot2                                     ### 
 ################################################################################
 
 ## OBJECTIVE:
@@ -67,7 +67,7 @@ Redband <- subset(SpokaneFish, Species=="RB" & is.na(ScaleAge)==F )   #This is o
 ############################
 
 ## There is often a length requirement for take from fishing
-## What is the distribution of legnths of redband trout in the lower Spokane River? 
+## What is the distribution of lengths of redband trout in the lower Spokane River? 
 ggplot(Redband, aes(x=Length)) + geom_histogram()
 
 ## TASK: What factors might affect this distribution? 
@@ -128,13 +128,8 @@ ggplot(Redband, aes(x=Length, y=Weight, color=as.factor(ScaleAge))) + geom_point
 
 
 
-## Another example of a statistical transformation is geom_boxplot() which:
-## Calculates a new dataset based on statistically transforming the default dataset and aesthetics (Weight and ScaleAge)
-## In this case, it creates a dataframe of  the mean and upper and lower quantiles of Weight within ScaleAge
-## Adds this transformed data as a geometric object
+## Another example of a statistical transformation is geom_boxplot():
 ggplot(Redband, aes(x=as.factor(ScaleAge), y=Weight)) + geom_boxplot()
-
-## QUESTION: Can you name another statistical transformation?
 
 
 #########################################
@@ -169,7 +164,6 @@ ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(size=1, color="darkblue", 
 ## 6) Specifying facets
 #########################################
 
-
 ## Faceting makes it easy to graph subsets of an entire dataset. 
 ## For example, we could relate length and width within each age class.
 ## We do that by adding a facet specification to our initial graph:
@@ -184,3 +178,25 @@ ggplot(Redband, aes(x=Length, y=Weight)) + geom_point() + facet_grid(Year~ScaleA
 
 ## TASK: Using the full SpokaneFish dataset, make a histogram of length faceted by species
 ## Why did we focus on redband trout?
+
+
+#########################################
+## 7) Setting themes
+#########################################
+
+## Themes allow you to manipulate the look of a plot (background color, grid lines, etc)
+## ggplot2 has several built in themes 
+
+## Let's revisit a previous graph, naming it "our graph"
+ourgraph <- ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(size=1, color="darkblue", shape=1) +
+  scale_x_log10() + scale_y_log10() +
+  xlab("Redband trout length (mm)") + ylab("Redband trought weight (g)")
+
+## Two common themes are theme_classic() and theme_bw()
+ourgraph + theme_classic()
+ourgraph + theme_bw()
+
+## Let's say we liked theme_bw() but we want to remove the gridlines
+## You can manipulate individual theme components with theme():
+ourgraph + theme_bw() + theme(panel.grid = element_blank())
+
