@@ -53,6 +53,7 @@ luq_test_datasets <- test_datasets_listing %>%
 ## Batch download the datasets
 local_datasets <- map(luq_test_datasets$dataset_URL, ~download_d1_data(.x, data_folder))
 ```
+
 At this point, you should have all the data and the metadata downloaded inside your main directory; `Stream_data_LUQ` in this example. `metajam` organize the files as follow: 
 - Each dataset is stored a sub-directory named after the package DOI and the file name
 - Inside this sub-directory, you will find

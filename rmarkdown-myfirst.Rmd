@@ -1,8 +1,7 @@
 ---
 title: "intro_rmarkdown"
 author: "Julien Brun, NCEAS"
-output:
-  html_document: default
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -33,7 +32,7 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 --
 
-End of default example
+**End of default example**
 
 --
 
@@ -131,11 +130,18 @@ barplot(iris_avg$Sepal.Length_median, names = iris_avg$Species)
 ```
 ## Tables
 
-You can use html widgets to add som interactivity to your R markdown documents
+
+### Markdown
+
+|   x |   y |   z |
+|-----|-----|-----|
+|   1 |   2 |   3 |
+|   4 |   5 |   6 |
+
+**=> Tidious!!**
 
 
-
-You can render tables in R Markdown
+### You can render tables of data frames in R Markdown
 
 ```{r my first table}
 knitr::kable(iris_avg, caption = "Iris Median data")
@@ -147,7 +153,14 @@ But not that convenient if the table is large:
 knitr::kable(iris, caption = "Iris data")
 ```
 
+
+--
+
+
 ## Embedding interactive elements - HTML widgets
+
+You can use html widgets to add some interactivity to your R markdown documents
+
 
 ### Interactive table
 
@@ -194,8 +207,8 @@ This will render as:
 **There are `r nrow(lter_sites)` US LTER sites!**
 
 
-
-
+As today, `r Sys.Date()`, There are `r nrow(lter_sites)` US LTER sites!
+--
 
 
 
@@ -203,30 +216,105 @@ This will render as:
 
 **As you can set options for code chunks, you can set the same for all the chunks of the R markdown document.**
 
-For example, we coul want to save all our plots in a specific folder:
+
+### Output foilder 
+
+For example, we coul want to save all our plots in a specific folder
 
 ```{r global options folder}
 knitr::opts_chunk$set(fig.path = "./figures/") 
 ```
 
-```{r}
+### Set your figure size for all
+
+```{r globaal figure size}
 knitr::opts_chunk$set(fig.width=12, fig.height=8)
 ```
 
-### Default options
+## Set your figure type to `PNG`
 
-Want to know your default knit option?
+```{r globaal figure size}
+knitr::opts_chunk$set(dev = "png")
+```
+
+### Default `Knit` options
+
+Want to know your default knit options?
 
 ```{r default knit, eval=FALSE}
 str(knitr::opts_chunk$get())
 ```
 
+--
 
-
-## Knit Options via YALM
+## Knit Options via `YAML`
 
 ### Adding a table of content
 
+```{YAML}
+---
+title: "intro_rmarkdown"
+author: "Julien Brun, NCEAS"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    keep_markdown_true
+---
+```
+
 ### Adding numbering to headers
 
+```{YAML}
+---
+title: "intro_rmarkdown"
+author: "Julien Brun, NCEAS"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+---
+```
+
+### Keep the Markdown document
+
+```{YAML}
+---
+title: "intro_rmarkdown"
+author: "Julien Brun, NCEAS"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+    keep_md: true
+---
+```
+
+## Bibliography
+
+```{YAML}
+---
+title: "intro_rmarkdown"
+author: "Julien Brun, NCEAS"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    number_sections: true
+bibliography: references.bib
+---
+```
+
+Most of this material and more can be found in [@xie_r_2018]
+
+
+- add `# References` header at the end of the document
+
+- Most of this material and more can be found in [@xie_r_2018; @RMarkdown]
 
