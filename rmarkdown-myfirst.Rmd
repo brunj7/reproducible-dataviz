@@ -94,7 +94,7 @@ Opening the link in a new window (R Markdown): [LTER](http://www.lternet.edu){ta
 ## Insert our first code chunk
 
 - From GUI
-- Using keyboard code chnuk: `Ctrl` + `Alt` + `I` (`Cmd` + `Option` + `I` on macOS).
+- Using keyboard code chunk: `Ctrl` + `Alt` + `I` (`Cmd` + `Option` + `I` on macOS).
 
 ```{r iris median no param}
 
@@ -107,7 +107,7 @@ iris_avg <- iris %>%
 iris_avg
 
 ```
-mmm, we do not want the `Tidyverse` message...
+Well, we do not want the `Tidyverse` message...
 
 ```{r iris median, message=FALSE}
 
@@ -223,9 +223,9 @@ As today, `r Sys.Date()`, There are `r nrow(lter_sites)` US LTER sites!
 **As you can set options for code chunks, you can set the same for all the chunks of the R markdown document.**
 
 
-### Output foilder 
+### Output folder 
 
-For example, we coul want to save all our plots in a specific folder
+For example, we could want to save all our plots in a specific folder
 
 ```{r global options folder}
 knitr::opts_chunk$set(fig.path = "./figures/") 
