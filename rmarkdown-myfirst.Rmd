@@ -233,7 +233,7 @@ knitr::opts_chunk$set(fig.path = "./figures/")
 
 ### Set your figure size for all
 
-```{r globaal figure size}
+```{r global figure size}
 knitr::opts_chunk$set(fig.width=12, fig.height=8)
 ```
 
