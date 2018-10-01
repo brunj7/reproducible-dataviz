@@ -324,7 +324,7 @@ Most of this material and more can be found in [@xie_r_2018]
 
 - Most of this material and more can be found in [@xie_r_2018; @RMarkdown]
 
-## Making figure Captions more fun
+## Automating figure captions
 
 ```{r captioner}
 # install.packages("captioner")
