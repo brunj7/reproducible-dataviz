@@ -73,6 +73,12 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 ```{r, LTER logo chunk, out.width='50%', fig.align="center", fig.cap="LTER logo", echo=FALSE}
 knitr::include_graphics("https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png")
 ```
+Note: since this work with a URL... you can add GIFs
+
+```{r, cat five, out.width='50%', fig.align="center", fig.cap="cat five", echo=FALSE}
+knitr::include_graphics("https://media.giphy.com/media/10ZEx0FoCU2XVm/giphy.gif")
+```
+
 ### Adding an URL
 
 Pure markdown: <http://www.lternet.edu>
