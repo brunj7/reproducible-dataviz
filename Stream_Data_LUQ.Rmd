@@ -89,6 +89,9 @@ leaflet() %>% setView(-65.82, 18.32, 14) %>%
 luq_datasets <- map(local_datasets, read_d1_files) %>% 
   set_names(map(., ~.x$summary_metadata$value[.x$summary_metadata$name == "File_Name"]))
 ```
+
+--
+
 ## Perform checks on data structure
 
 ```{r attributes, eval=FALSE}
@@ -99,9 +102,14 @@ attributes_luq <- luq_datasets %>% map("data") %>% map(colnames)
 for(ds in names(attributes_luq)) {
   print(identical(attributes_luq[[1]], attributes_luq[[ds]]))
 }
-
-#> => We are good, same data structure across the sampling sites
 ```
+** => We are good, same data structure across the sampling sites**
+
+### Conclusion 
+
+- the same attributes are reported at the different sampling sites
+
+--
 
 ## Perform checks on the units
 
@@ -113,8 +121,91 @@ luq_units <- luq_datasets %>% map("attribute_metadata") %>% map(~.[["unit"]])
 for(us in names(luq_units)) {
   print(identical(luq_units[[1]], luq_units[[us]]))
 }
+
+#>!!! => The 2 last datasets have different units!!!!!!!!!!
+
+# Let's check the differences
+luq_units_merged <- luq_datasets %>%
+  map("attribute_metadata") %>%
+  map(. %>% select(attributeName, unit)) %>%
+  reduce(full_join, by = "attributeName") 
+
+## Rename
+# Create the new names
+luq_new_colnames <- names(luq_units) %>%
+  str_split("[.]") %>%
+  map(~.[1]) %>%
+  paste("unit", ., sep = "_")
+
+# Apply the new names
+colnames(luq_units_merged) <- c("attributeName", luq_new_colnames)
 ```
 
+### Conclusion
+
+- For the 2 last sampling sites `RioIcacos` and `RioMameyesPuenteRoto`, the units used for the gage height are in foot and not meter as for the other sites
+- For the 2 last sampling sites `RioIcacos` and `RioMameyesPuenteRoto`, `NH4` and not `NH4-N` is measured
+
+--
+
+## Fixing units discrepencies
+
+```{r fixing_units, eval=FALSE}
+# fix attribute naming discrepencies -- to be improved 
+# Copy the units for Gage height
+luq_units_merged[which(luq_units_merged$attributeName == "Gage_Ht"), c("unit_RioIcacos", "unit_RioMameyesPuenteRoto")] <- "foot"
+
+# Copy the units for NH4
+luq_units_merged[which(luq_units_merged$attributeName == "NH4-N"), c("unit_RioIcacos", "unit_RioMameyesPuenteRoto")] <- "microgramsPerLiter"
+
+# drop the 2 last rows
+luq_units_merged <- head(luq_units_merged, -2)
+
+
+### Implement the unit conversion for RioIcacos and RioMameyesPuenteRoto ----
+
+## RioIcacos
+# Fix NAs
+luq_datasets$RioIcacos$data[luq_datasets$RioIcacos$data == -9999] <- NA
+
+# Simplify naming
+RioIcacos_data <- luq_datasets$RioIcacos$data
+RioIcacos_attrmeta <- luq_datasets$RioIcacos$attribute_metadata
+
+# Do the unit conversion  - Gage height - manual way
+# RioIcacos_data$Gage_Ht <- RioIcacos_data$Gage_Ht * 0.3048
+
+# Do the unit conversion  - Gage height - udunits way
+RioIcacos_data$Gage_Ht <- ud.convert(RioIcacos_data$Gage_Ht,
+                                     RioIcacos_attrmeta$unit[RioIcacos_attrmeta$attributeLabel == "Gage height"], "meter")
+
+# Do the unit conversion for RioIcacos and RioMameyesPuenteRoto - NH4 to NH4-N
+RioIcacos_data$`NH4-N` <- RioIcacos_data$`NH4-N`* coeff_conv_NH4_to_NH4N
+
+# Update the main object 
+luq_datasets$RioIcacos$data <- RioIcacos_data
+
+## RioMameyesPuenteRoto
+# Replace -9999 with NAs 
+luq_datasets$RioMameyesPuenteRoto$data[luq_datasets$RioMameyesPuenteRoto$data == -9999] <- NA
+
+# Simplify naming
+RioMameyesPuenteRoto_data <- luq_datasets$RioMameyesPuenteRoto$data
+RioMameyesPuenteRoto_attrmeta <- luq_datasets$RioMameyesPuenteRoto$attribute_metadata
+
+# Do the unit conversion  - Gage height - manual way
+RioMameyesPuenteRoto_data$Gage_Ht <- ud.convert(RioMameyesPuenteRoto_data$Gage_Ht,
+                                                RioMameyesPuenteRoto_attrmeta$unit[RioMameyesPuenteRoto_attrmeta$attributeLabel == "Gage height"], "meter")
+
+# Do the unit conversion for RioMameyesPuenteRoto - NH4 to NH4-N
+RioMameyesPuenteRoto_data$`NH4-N` <- RioMameyesPuenteRoto_data$`NH4-N` * coeff_conv_NH4_to_NH4N
+
+# Update the main object
+luq_datasets$RioMameyesPuenteRoto$data <- RioMameyesPuenteRoto_data 
+
+```
+
+--
 
 ## Append all the sampling sites into one master dataset
 
@@ -134,6 +225,9 @@ all_sites_luq$Sample_Date <- mdy(gsub(" 0:00", "", all_sites_luq$Sample_Date)) #
 # write_csv(all_sites_luq, "stream_chem_all_LUQ.csv")
 ```
 
+--
+
+## Doing some exploratory data visualization
 
 ```{r}
 library(ggplot2)
@@ -141,3 +235,5 @@ library(ggplot2)
 ggplot(all_sites_luq) + 
     geom_line(aes(Sample_Date, Cond, color=Sample_ID))
 ```
+
+**=> not all the site have the same time-series length! 2001-2013 seems to be a good period of overlap.**
