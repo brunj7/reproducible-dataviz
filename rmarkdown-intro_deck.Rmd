@@ -211,8 +211,9 @@ Note: equivalent of `echo = FALSE`, `results = 'hide'`, `warning = FALSE`, and `
 ---
 class: inverse, center, middle
 
-<img align="right" src="images/hex-ggplot2.png" width="45%">
-# `ggplot2`
+
+
+<img align="center" src="images/hex-ggplot2.png" width="65%">
 
 ---
 
