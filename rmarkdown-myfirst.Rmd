@@ -335,6 +335,8 @@ fig_caps("sepmed", "Median Sepal Length")
 fig_caps("sepmed")
 # For the citation
 fig_nums("sepmed", display = "cite")
-
+# For the number only
+fig_nums("sepmed", display = "num")
 ```
 
+**For more advanced caption feature and cross-references, see [`bookdown`](https://bookdown.org/yihui/bookdown/figures.html#figures)**
