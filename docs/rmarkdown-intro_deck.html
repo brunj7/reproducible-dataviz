@@ -51,6 +51,7 @@ class: center
 ]
 
 --
+
 .xlarge[
 - Keep it fun!
 &lt;img src="images/stickynotes.png", align="right", width="55%" /&gt;
@@ -99,7 +100,7 @@ _Note: In this workshop we will use the [RStudio IDE](https://www.rstudio.com/pr
 
 ---
 
-## Create our First R Markdown Document
+# Create our First R Markdown Document
 
 .xlarge[
 
@@ -109,8 +110,10 @@ _Note: In this workshop we will use the [RStudio IDE](https://www.rstudio.com/pr
 
 .center[![](images/knit-button.png)]
 
-.xlarge[note you could you enter this command at the R console  
-`rmarkdown::render("rmkdown1.Rmd")`
+&lt;br&gt;
+
+.large[Note: you could also enter this command at the R console:  `rmarkdown::render("rmkdown1.Rmd")`
+]
 
 ---
 class: inverse, center, middle
@@ -123,7 +126,8 @@ class: inverse, center, middle
 
 &lt;img align="right" src="images/rmarkdown-doc-structure.png" width="40%" /&gt;
 
-.pull-left[.large[
+.pull-left[
+.large[
 3 basic components 
   - **Metadata**  
   _(`YAML` Ain't Markup Language)_
@@ -133,7 +137,8 @@ class: inverse, center, middle
   
   - **Code (chunks)** with your analysis 
   _(`R` and friends)_
-]]
+]
+]
 
 ---
 
@@ -144,7 +149,7 @@ class: inverse, center, middle
 .large[
 `Markdown` is a simple (read easy to use) **text-based markup** for creating easy to read documents to be converted to `HTML`, `PDF`, `docx` and other formats. 
 
-Document styles can be customized with `HTML/CSS` and math notation can be included using `LaTeX` or `mathjax`. 
+Document styles can be customized with `HTML/CSS` and math notation can be included using `LaTeX` or `mathjax`.
 ]
 
 --
@@ -178,6 +183,14 @@ _From: [RopenSci reproducibility guide](http://ropensci.github.io/reproducibilit
 .footnote[
 _From: [RopenSci reproducibility guide](http://ropensci.github.io/reproducibility-guide/sections/tools/)_
 ]
+
+---
+background-image: url(images/markdown-how-it-works.png)
+background-position: center
+background-size: contain
+
+# How is it rendered ?
+
 
 
 ---
@@ -214,15 +227,13 @@ Note: equivalent of `echo = FALSE`, `results = 'hide'`, `warning = FALSE`, and `
 ---
 class: inverse, center, middle
 
-
-
 &lt;img align="center" src="images/hex-ggplot2.png" width="65%"&gt;
 
 ---
 
-&lt;img align="right" src="images/hex-rmarkdown.png" width="45%" /&gt;
+&lt;img align="right" src="images/hex-rmarkdown.png" width="15%" /&gt;
 
-## Why R Markdown can help 
+## Why R Markdown can help reproducibility
 
 .large[
 - Combine **code** and **documentation** in **one** document/file  
@@ -334,23 +345,27 @@ class: inverse, center, middle
 
 ## Data
 
+.pull-left[
 .large[
 - (Files) management
 - Format
 - Access
 - Preservation
 ]
+]
 
 --
 
 ## Software / Code 
 
+.pull-right[
 .large[
 - Script everything
 - Use open source
-- Track changes - version control
+- Track changes 
 - Comment your code well
 - Share your code 
+]
 ]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
