@@ -230,6 +230,124 @@ class: inverse, center, middle
 &lt;img align="center" src="images/hex-ggplot2.png" width="65%"&gt;
 
 ---
+class: center, middle
+
+# Exploratory Data Visualization
+
+---
+class: center, middle
+
+# Why visualize data?
+
+# The Datasaurus Dozen
+
+
+---
+class: bottom
+background-image: url(images/datasaurus_table.png)
+background-position: center
+background-size: 100%
+
+&lt;img align="right" src="images/datasaurus_citation.png" width="65%"&gt;
+
+---
+class: bottom
+background-image: url(images/datasaurus_plots.png)
+background-position: center
+background-size: 80%
+
+&lt;img align="right" src="images/datasaurus_citation.png" width="65%"&gt;
+
+---
+class: bottom
+
+# What makes an effective graph?
+
+&lt;img align="center" src="images/effective_graph.png" width="110%"&gt;
+
+
+
+Creating more effective graphs by Robbins `ggplot2` by Wickham
+
+
+---
+class: center, middle
+
+.xlarge[`ggplot2`: A layered grammar of graphics]
+
+---
+
+# What is this?
+
+&lt;img align="center" src="images/scatter0_all.png" width="65%"&gt;
+
+---
+
+## What is this? A coordinate system
+
+
+&lt;img align="center" src="images/scatter1_axis.png" width="55%"&gt;
+
+---
+
+## What is this? A coordinate system **AND** data and aesthetics
+
+&lt;img align="center" src="images/scatter2_labels.png" width="65%"&gt;
+
+
+---
+
+## What is this? A coordinate system, data and aesthetics **AND** geometric objects
+
+&lt;img align="center" src="images/scatter3_dots.png" width="65%"&gt;
+
+---
+
+
+## What is this? A coordinate system data and aesthetics and geometric objects **AND** scale
+
+&lt;img align="center" src="images/scatter4_scales.png" width="65%"&gt;
+
+---
+
+## What is this? A coordinate system data and aesthetics and geometric objects and scale **AND** statistical transformations
+
+&lt;img align="center" src="images/scatter5_regression.png" width="55%"&gt;
+
+---
+
+## What is this? A coordinate system data and aesthetics and geometric objects and scale and statistical transformations **AND** Faceting
+
+&lt;img align="center" src="images/scatter6_facette.png" width="100%"&gt;
+
+---
+
+# Format for this ggplot2 object
+
+&lt;br&gt;
+
+
+
+
+```r
+ggplot(Data, aes(x=Var1, y=Var2)) + geom_point() + 
+geom_smooth() +  
+scale_x_log10() + scale_y_log10() +  
+facet_wrap(~Group)
+```
+
+
+---
+class: inverse, center, middle
+
+## _please open your laptop and open the script:_ `ggplot2_intro.R`
+
+---
+class: inverse, center, middle
+
+## Putting it back together
+
+---
 
 &lt;img align="right" src="images/hex-rmarkdown.png" width="15%" /&gt;
 
@@ -300,72 +418,55 @@ class: inverse, center, middle
 
 &lt;br&gt;
 **_=&gt; If you R Markdown document is in a sub-directory,  relative paths are different_**
-
 ]
 
+.footnote[
+.large[
+_the [`here`](https://github.com/jennybc/here_here) package can help you with this!_ 
+]
+]
 
 ---
+class: bottom
 background-image: url(images/wd.png)
 background-position: center
 background-size: contain
 
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+
 .footnote[
 _source: https://isteves.github.io/paris/rladies.html_
 ]
+
 ---
 class: inverse, center, middle
 
-# One step towards reproducibility...
+
+## One step towards reproducibility...  
+## but many other aspects of your workflow still to be considered !!
+
 
 ---
 
 ## Data
 
-.pull-left[
 .large[
 - (Files) management
 - Format
 - Access
 - Preservation
 ]
-]
+
 
 --
 
 ## Software / Code 
 
-.pull-right[
 .large[
 - Script everything
 - Use open source
 - Track changes 
 - Comment your code well
 - Share your code 
-]
 ]
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
