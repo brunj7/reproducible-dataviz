@@ -16,6 +16,10 @@ To register, simply add the session to your schedule: http://sched.co/FYq5
 - [Lauren Hallett](https://laurenmh.github.io/), Assistant Professor in Environmental Studies and Biology, University of Oregon
 
 
+### Slide Deck
+
+https://brunj7.github.io/reproducible-dataviz/rmarkdown-intro_deck.html
+
 ## Preparing for the Workshop
 
 ### Required software
