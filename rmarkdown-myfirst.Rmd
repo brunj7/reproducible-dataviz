@@ -1,5 +1,5 @@
 ---
-title: "intro_rmarkdown"
+title: "Rmarkdown in one hour"
 author: "Julien Brun, NCEAS"
 output: html_document
 ---
@@ -9,41 +9,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-## R Markdown
+# Some Markdown fun
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-
---
-
-**End of default example**
-
---
-
-## Some Markdown fun
-
-### Adding an image
+## Adding an image
 
 - Markdown way: 
 
 ```
-![LTER logo](https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png)
+![LTER logo](images/LTER-logo.png)
 ```
 ![LTER logo](https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png)
 
@@ -55,9 +28,9 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 <br>
 
-<img src="https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png" width="50%" align="right" alt="LTER logo" />
+<img src="images/LTER-logo.png" width="50%" align="right" alt="LTER logo" />
 ```
-<img src="https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png" width="50%" align="right" alt="LTER logo" />
+<img src="images/LTER-logo.png" width="50%" align="right" alt="LTER logo" />
 ```
 
 <br>
@@ -66,20 +39,15 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 - Using code chunks: 
 
 ```{r, LTER logo, out.width='50%', fig.align="right", fig.cap="LTER logo", results='hide'}
-  knitr::include_graphics("https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png")
+  knitr::include_graphics("images/LTER-logo.png")
 ```
 
 
 ```{r, LTER logo chunk, out.width='50%', fig.align="center", fig.cap="LTER logo", echo=FALSE}
-knitr::include_graphics("https://lternet.edu/wp-content/uploads/2018/02/LTER-network-horizontal.png")
-```
-Note: since this work with a URL... you can add GIFs
-
-```{r, cat five, out.width='50%', fig.align="center", fig.cap="cat five", echo=FALSE}
-knitr::include_graphics("https://media.giphy.com/media/10ZEx0FoCU2XVm/giphy.gif")
+knitr::include_graphics("./images/LTER-logo.png")
 ```
 
-### Adding an URL
+## Adding an URL
 
 Pure markdown: <http://www.lternet.edu>
 
@@ -89,7 +57,40 @@ Adding link to a word: [LTER](http://www.lternet.edu)
 
 Opening the link in a new window (R Markdown): [LTER](http://www.lternet.edu){target="_blank"}
 
---
+
+
+---
+
+<img src="images/challenge.png" align="left" alt="Question" /> 
+
+### Exercise
+
+<br>
+
+**Task 1**
+
+- Insert the `rmarkdown` hex sticker (http://hexb.in/hexagons/rmarkdown.png) centered in this document and add a legend 
+- Add some text describing the `R markdown` and list 2-3 things you think you will like about it
+- Add a URL to the github repository of the package
+- **Bonus**: How would you make sure the it has a height of 2"? 
+
+**Task 2**
+
+- Go on the giphy website: https://giphy.com/ 
+- Choose a GiF you like
+- Add it to your document in a way that you can see it animated
+
+
+_DONE?! High-Five the cat then!_
+
+```{r, cat five, out.width='50%', fig.align="center", fig.cap="Checked!!", echo=FALSE}
+knitr::include_graphics("https://media.giphy.com/media/10ZEx0FoCU2XVm/giphy.gif")
+```
+
+
+---
+
+# Code Chunk
 
 ## Insert our first code chunk
 
@@ -107,20 +108,21 @@ iris_avg <- iris %>%
 iris_avg
 
 ```
-Well, we do not want the `Tidyverse` message...
 
-```{r iris median, message=FALSE}
 
-library(tidyverse)
+---
 
-iris_avg <- iris %>%
-  group_by(Species) %>%
-  summarise_all(funs(median = median))
+<img src="images/challenge.png" align="left" alt="Question" /> 
 
-iris_avg
+### Exercise
 
-```
+<br>
 
+**Task**
+
+Well, we do not want the `Tidyverse` message in our final document. What should you try to change to the above code chunk to  do so?
+
+---
 
 ## Some basic plotting
 
@@ -128,16 +130,43 @@ iris_avg
 barplot(iris_avg$Sepal.Length_median, names = iris_avg$Species)
 ```
 
-- Discuss the plot and how to remove the code above the plot
-- Show we can add a legend
+---
 
-```{r iris median plot with caption, echo=FALSE, fig.cap="Median Sepal Length"}
-barplot(iris_avg$Sepal.Length_median, names = iris_avg$Species)
+<img src="images/challenge.png" align="left" alt="Question" /> 
+
+### Exercise
+
+<br>
+
+- How could you hide the code and just show the plot?
+- Add a legend to your plot
+- Make the figure 8" wide
+
+---
+
+## Automating figure caption numbering
+
+```{r captioner}
+# install.packages("captioner")
+library(captioner)
+fig_caps <- captioner(prefix = "Figure")
+fig_caps("sepmed", "Median Sepal Length")
+# For the caption
+fig_caps("sepmed")
+# For the citation
+fig_caps("sepmed", display = "cite")
+# For the number only
+fig_caps("sepmed", display = "num")
 ```
-## Tables
+
+**For more advanced caption feature and cross-references, see [`bookdown`](https://bookdown.org/yihui/bookdown/figures.html#figures)**
 
 
-### Markdown
+
+# Tables
+
+
+## Markdown
 
 |   x |   y |   z |
 |-----|-----|-----|
@@ -147,7 +176,7 @@ barplot(iris_avg$Sepal.Length_median, names = iris_avg$Species)
 **=> Tidious!!**
 
 
-### You can render tables of data frames in R Markdown
+## You can render tables of data frames in R Markdown
 
 ```{r my first table}
 knitr::kable(iris_avg, caption = "Iris Median data")
@@ -160,15 +189,12 @@ knitr::kable(iris, caption = "Iris data")
 ```
 
 
---
-
-
-## Embedding interactive elements - HTML widgets
+# Embedding interactive elements - HTML widgets
 
 You can use html widgets to add some interactivity to your R markdown documents
 
 
-### Interactive table
+## Interactive table
 
 To let the user be able to explore the data, we can create an interactive table
 
@@ -178,7 +204,7 @@ DT::datatable(iris)
 ```
 
 
-### Interactive Maps
+## Interactive Maps
 
 We have a csv file with the all the LTER sites. We can read this file and create an interactive maps in few lines of code
 
@@ -198,7 +224,7 @@ leaflet(data=lter_sites) %>% addTiles() %>% setView(-98, 40, zoom = 4) %>% addCi
 ```
 
 
-## Inline code 
+# Inline code 
 
 **You can use R to compute values within your text documentation**
 
@@ -213,17 +239,33 @@ This will render as:
 **There are `r nrow(lter_sites)` US LTER sites!**
 
 
-As today, `r Sys.Date()`, There are `r nrow(lter_sites)` US LTER sites!
---
+---
+
+<img src="images/challenge.png" align="left" alt="Question" /> 
+
+### Exercise
+
+<br>
+
+- Write a sentence stating the number of LTER sites, stipulating today's date
+- Write a sentence with the name of the most northern LTER site
+
+---
 
 
-
-## Global Chunk Options
+# Global Chunk Options
 
 **As you can set options for code chunks, you can set the same for all the chunks of the R markdown document.**
 
 
-### Output folder 
+## Set your figure size for all
+
+```{r global figure size}
+knitr::opts_chunk$set(fig.width=12, fig.height=8)
+```
+
+
+## Output folder 
 
 For example, we could want to save all our plots in a specific folder
 
@@ -231,11 +273,6 @@ For example, we could want to save all our plots in a specific folder
 knitr::opts_chunk$set(fig.path = "./figures/") 
 ```
 
-### Set your figure size for all
-
-```{r global figure size}
-knitr::opts_chunk$set(fig.width=12, fig.height=8)
-```
 
 ## Set your figure type to `PNG`
 
@@ -243,7 +280,7 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8)
 knitr::opts_chunk$set(dev = "png")
 ```
 
-### Default `Knit` options
+## Know your (default) `Knit` options
 
 Want to know your default knit options?
 
@@ -253,9 +290,11 @@ str(knitr::opts_chunk$get())
 
 --
 
-## Knit Options via `YAML`
+# Knit Options via `YAML` metadata header
 
-### Adding a table of content
+See this reference for more option
+
+## Adding a table of content
 
 ```{YAML}
 ---
@@ -264,13 +303,29 @@ author: "Julien Brun, NCEAS"
 output:
   html_document:
     toc: true
-    toc_depth: 2
     toc_float: true
-    keep_markdown_true
 ---
 ```
 
-### Adding numbering to headers
+---
+
+<img src="images/challenge.png" align="left" alt="Question" /> 
+
+### Exercise
+
+<br>
+
+Using the Cheat sheet (or the Web):
+
+- Limit the depth of the table of content (TOC) to headers of level-2
+- Place the TOC on the left of the document "floating"
+- **Bonus**: Make TOC showing all the sections all the time
+
+---
+
+
+
+## Adding numbering to headers
 
 ```{YAML}
 ---
@@ -278,14 +333,11 @@ title: "intro_rmarkdown"
 author: "Julien Brun, NCEAS"
 output:
   html_document:
-    toc: true
-    toc_depth: 2
-    toc_float: true
     number_sections: true
 ---
 ```
 
-### Keep the Markdown document
+## Save the intermediate the Markdown document
 
 ```{YAML}
 ---
@@ -301,9 +353,11 @@ output:
 ---
 ```
 
-## Bibliography
+# Bibliography
 
-```{YAML}
+Add your bibliographic file path to the YAML header. Here we are using a `bibtex` file, which is a standard format that most of the Reference manager software can export.
+
+```{YAML biblio}
 ---
 title: "intro_rmarkdown"
 author: "Julien Brun, NCEAS"
@@ -317,26 +371,26 @@ bibliography: references.bib
 ---
 ```
 
+Then you can cite a reference within your markdown text using: `[@citationKey]`
+
+For example in our file ` reference.bib`, we have a reference to the book `R Markdown: The Definitive Guide`
+
+We can add the following citation: 
+
+```
 Most of this material and more can be found in [@xie_r_2018]
-
-
-- add `# References` header at the end of the document
-
-- Most of this material and more can be found in [@xie_r_2018; @RMarkdown]
-
-## Automating figure captions
-
-```{r captioner}
-# install.packages("captioner")
-library(captioner)
-fig_caps <- captioner(prefix = "Figure")
-fig_caps("sepmed", "Median Sepal Length")
-# For the caption
-fig_caps("sepmed")
-# For the citation
-fig_nums("sepmed", display = "cite")
-# For the number only
-fig_nums("sepmed", display = "num")
 ```
 
-**For more advanced caption feature and cross-references, see [`bookdown`](https://bookdown.org/yihui/bookdown/figures.html#figures)**
+The References will be added at the bottom of the document when knitted. Note that you will have to add `# References` header at the end of your Rmakrdown document.
+
+---
+
+<img src="images/challenge.png" align="left" alt="Question" /> 
+
+### Exercise
+
+<br>
+
+Write a sentence thanking  `R`, `RStudio` and the `rmarkdown` teams for their awsome tools
+
+---
